@@ -1,0 +1,241 @@
+* {
+	padding-top: 400px;
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+}
+body {
+	background: #f5f5f5;
+	font-family: "Roboto",sans-serif;
+}
+
+header p{
+	text-align: center;
+	color: #fff;
+}
+
+header img{
+	width: 400px;
+}
+
+#logo{
+	height: 100px;
+	margin: 30px;
+}
+
+.screen {
+	display: none;
+}
+.screen.active {
+	display: block;
+}
+.app {
+	background-color: #8b89897a;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+	max-width: 500px;
+	border-radius: 30px;
+	border: 3px dotted #ddd;
+}
+.form{
+	width: 1200px;
+	color: white;
+	background: #25272D;
+	font-family:Arial, Helvetica, sans-serif;
+}
+
+#form-1{
+	padding: 15px;
+	margin: 1px;
+	background: #25272D;
+}
+#form-2{
+	padding: 15px;
+	margin: 1px;
+	background: #0D1117;
+}
+#form-3{
+	padding: 15px;
+	margin: 1px;
+	background: #0D1117;
+}
+.form div .p{
+	margin: 15px 0px;
+}
+
+
+.custom-input {
+	margin: 10px 0;
+	width: 100%;
+	background: transparent;
+	border: 1px solid #fff;
+	color: #fff;
+	padding: 10px;
+  }
+.custom-button {
+	align-items: center;
+	margin: 10px;
+	background-color: transparent;
+	border: 2px solid #fff;
+	color: #fff;
+	padding: 10px 20px;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+  }
+
+  .custom-button:hover {
+	background-color: #fff;
+	color:#25272D;
+  }
+/* .join-screen .form {
+	padding: 50px;
+}
+.join-screen .form .form-input {
+	margin: 10px 0px;
+}
+.join-screen .form h2 {
+	font-size: 40px;
+	color: #eee;
+	margin-bottom: 20px;
+	line-height:45px;
+	font-family: "Montserrat",sans-serif;
+}
+.join-screen .form button {
+	background: #fff;
+	color: #111;
+	padding: 10px 20px;
+	border: none;
+	outline: none;
+	font-size: 16px;
+	font-weight: 600;
+	border-radius: 20px;
+}
+.join-screen .form #join-id b {
+	color: #eee;
+	display: block;
+	margin-top: 20px;
+}
+.join-screen .form #join-id span {
+	display: inline-block;
+	font-size: 25px;
+	font-family: monospace;
+	color: #eee;
+	padding: 10px;
+	border: 1px solid #eee;
+	margin-top: 5px;
+}
+.join-screen .form .form-input label {
+	color: #eee;
+	font-size: 18px;
+}
+.join-screen .form .form-input input {
+	display: block;
+	margin:10px 0px;
+	width: 100%;
+	max-width: 200px;
+	border: 1px solid #8b8989;
+	font-size: 20px;
+	padding: 10px;
+} */
+
+.fs-screen {
+	padding: 20px;
+}
+.fs-screen .file-input {
+	width: 100%;
+	border: 2px dashed #eee;
+}
+.fs-screen .file-input label {
+	display: block;
+	width: 100%;
+	padding: 40px 50px;
+	text-align: center;
+	color: #eee;
+	font-size: 18px;
+}
+.fs-screen .file-input input {
+	display: none;
+}
+.fs-screen .files-list {
+	margin-top: 20px;
+	color: #eee;
+	display: flex;
+	justify-content: space-between;
+	gap: 20px;
+	flex-wrap: wrap;
+}
+.fs-screen .files-list .title {
+	width: 100%;
+	font-size: 25px;
+	color: #eee;
+	margin: 20px 0px;
+}
+.fs-screen .files-list .item {
+	width: 33%;
+	
+	min-width: 200px;
+	border: 5px solid #eee;
+	box-shadow: 0px 0px 5px 2px rgba(254, 254, 254, 0.05);
+}
+.fs-screen .files-list .item .progress {
+	padding: 10px;
+	text-align: center;
+	font-size: 20px;
+	color: #eee;
+	font-family: "Montserrat";
+}
+.fs-screen .files-list .item .filename {
+	padding: 5px;
+	font-size: 18px;
+	border-top: 5px solid #eee;
+}
+
+.menu-icon {
+	position: fixed;
+	top: 1rem;
+	right: 1rem;
+	z-index: 2; /* Place the icon above the video and header */
+	cursor: pointer;
+}
+.menu-icon div {
+	width: 25px;
+	height: 3px;
+	background-color: white;
+	margin: 6px 0;
+}
+.menu {
+	position: fixed;
+	top: 0;
+	right: 0;
+	background-color: rgba(255, 255, 255, 0.95); /* Whitish background */
+	color: black;
+	height: 100%;
+	padding: 2rem;
+	width: 300px;
+	display: none;
+	z-index: 2; /* Place the menu above the video and header */
+	overflow-y: auto; /* Add scroll if content exceeds height */
+}
+.menu a {
+	display: block;
+	margin-bottom: 2rem;
+	margin-top: 2rem;
+	color: black;
+	text-decoration: none;
+	font-size: 20px;
+}
+.close-button {
+	background-color: #333;
+	color: white;
+	padding: 0.5rem 1rem;
+	border: none;
+	cursor: pointer;
+	border-radius: 5px;
+	text-align: center;
+	width: 100%;
+	margin-top: 1rem;
+}
+.close-button:hover {
+	background-color: #555;
+}

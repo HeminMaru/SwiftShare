@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <title>Secure Peer-to-Peer File Sharing</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+        header {
+            color: white;
+            padding-left: 80px;
+            padding-top: 150px;
+        }
+        main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 2rem;
+            margin-top: 1rem;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 1rem 0;
+            color: white;
+        }
+
+    </style>
+</head>
+<body>
+    <video autoplay loop muted>
+        <source src="assets/background.mp4" type="video/mp4">
+    </video>
+    <header>
+        <img id="logo" src="assets/logo.png"/>
+        <p>Secure Peer-to-Peer File Sharing</p>
+        
+    </header>
+    
+    <main>
+        <div>
+            <div class="form" >
+                <div id="form-1">
+                    <h2>1. Create Link to be shared</h2> 
+                    <div class="collapse-header">
+                        <button class="custom-button" id='create_link_btn' onclick="toggleCollapse2(this)">Create Link</button>
+                    </div> 
+                </div>
+                <div id="form-2">
+                    <h2>2. Accept Answer</h2>
+                    <div class="collapse-content" width="800px" id="collapse2" style="display: none;">  
+                        <p>Copy and send the offer link or scan QR Code to connect between peers.</p>
+                        <div class="mt-2 relative">
+                        <input
+                            type="password"
+                            class="custom-input"
+                            value="http://localhost:4312/receive?s=eNpdjcFOwzAQRH_FdxR312tnNwcObkOJKClRS0ThljhQ2gYKaiTExd9OQD2hOY00896diWWlHBOSqlUeZ1YhkEYEbchphCz6GTKxsFgWhePKIFJGjA5VQElbatvEZiSJDQ0kAgET23RgDbRCFHR_DE1_dhQjzjihVNCO9ReHKTObzJH7rz5_1sor0H9Rq~jr7jsco6_wteiX9L4byoe6WoZPmdwMMNnto5~TekP3eNE114v6vpgCXh1Op4Je5tvccf48bOXpdvPhv_aLIIfL6NcOAKIvTWrQ2vgDCFxHDQ--"
+                            readonly
+                        />
+                        </div>
+                        <div class="mt-4 flex gap-2">
+                        <button class="custom-button">
+                            Copy Link
+                        </button>
+                        <button class="custom-button">
+                            <img src="./assets/qrlogo.png" color='white' width="15px" alt="Logo">
+                            QR Code
+                        </button>
+                        
+                        </div>
+                        <p class="mt-4">Enter the Answer Code to accept the Answer or scan the QR Code.</p>
+                        <div class="relative mt-4">
+                        <input type="password" class="custom-input" value="" />
+                        </div>
+                        <div class="mt-4 flex gap-2">
+                        <button class="custom-button">
+                            Accept Answer
+                        </button>
+                        <button class="custom-button">
+                            Scan QR Code
+                        </button>                        
+                    </div>
+    
+                    </div>
+                </div>
+                <div id="form-3">
+                    <h2>3. Transfer Files</h2>
+                    <div class="collapse-content" width="800px" id="collapse3" style="display: none;">
+                        <p>Your content goes here</p> 
+                    </div>
+                </div>
+                
+              </div>
+              
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2023 SwiftShare. All rights reserved.</p>
+    </footer>
+    <script>
+        
+        function toggleCollapse2(button) {
+            const form1 = document.getElementById('form-1');
+            const maindiv = document.getElementById('form-2');
+            const content = document.getElementById('collapse2');
+            const create_link_button = document.getElementById('create_link_btn');
+            if (content.style.display === 'none') {
+            content.style.display = 'block';
+            create_link_button.style.display='none';
+            maindiv.style.background = '#25272D'
+            form1.style.background = '#0D1117'
+            } else {
+            content.style.display = 'none';
+            }
+        }
+
+        if (offerLink !== '' && !isConnecting) {
+            const content = document.getElementById('collapse2');
+            content.style.display = 'block';
+        }
+    </script>
+    <script type="text/javascript" src="socket.io/socket.io.js"></script>
+    <script type="text/javascript" src="sender.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/downloadjs/1.4.1/download.min.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Received Files - Secure Peer-to-Peer File Sharing</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1; /* Place the video behind other content */
+        }
+        header {
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+            z-index: 1; /* Place the header above the video */
+        }
+
+        main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 2rem;
+        }
+        .file-list {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            padding: 2rem;
+            border: 2px dashed #ddd;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+        }
+        .file-link {
+            background-color: #333;
+            color: white;
+            padding: 0.5rem 1rem;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            text-decoration: none;
+            text-align: center;
+            width: 100%;
+        }
+        .file-link:hover {
+            background-color: #555;
+        }
+        footer {
+            text-align: center;
+            padding: 1rem 0;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <video autoplay loop muted>
+        <source src="assets/background.mp4" type="video/mp4">
+    </video>
+    <header>
+		<img id="logo" src="assets/logo.png"/>
+
+        <div class="menu-icon" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </header>
+    <div class="menu" id="menu">
+        <a href="#">ABOUT US</a>
+        <hr/>
+        <a href="#">PRIVACY</a>
+        <hr/>
+        <a href="#">F.A.Q.</a>
+        <hr/>
+        <a href="#">BLOGS</a>
+        <hr/>
+        <button class="close-button" onclick="toggleMenu()">Close</button>
+        <p>&copy; 2023 SwiftShare. All rights reserved.</p>
+
+    </div>
+    <main>
+        <div class="app">
+            <div class="screen join-screen active">
+                <div class="form">
+                    <h2>Share your files securely</h2>
+                    <div class="form-input">
+                        <label>Join ID</label>
+                        <input type="text" id="join-id">
+                    </div>
+                    <div class="form-input">
+                        <button id="receiver-start-con-btn">Connect</button>
+                    </div>
+                </div>
+            </div>
+            <div class="screen fs-screen">
+                <div class="files-list">
+                    <div class="title">SHARED FILES</div>
+                </div>	
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2023 SwiftShare. All rights reserved.</p>
+    </footer>
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('menu');
+            menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
+        }
+    </script>
+    <script type="text/javascript" src="socket.io/socket.io.js"></script>
+    <!-- <script type="text/javascript" src="webrtc.js"></script> -->
+	<script type="text/javascript" src="receiver.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/downloadjs/1.4.1/download.min.js"></script>
+</body>
+</html>
